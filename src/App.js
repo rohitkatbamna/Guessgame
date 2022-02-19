@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 import "./App.css";
-
+const randomvalue = Math.floor(Math.random() * 20);
 function App() {
-	const [inputvalue, setInputvalue] = useState(NaN);
+	const [inputvalue, setInputvalue] = useState("Nothing Here");
 	const [numberequal, setNumberequal] = useState(false);
-	const [randomvalue, setRandomvalue] = useState(0);
+	const [guesshighlowstring, setGuesshighlowstring] = useState("");
 	let inputedNumber;
+
 	function handleChange(event) {
 		inputedNumber = event.target.value;
-		setInputvalue(inputedNumber);
+		console.log(inputedNumber);
 	}
 	function onSubmit() {
-		setRandomvalue(Math.floor(Math.random() * 2));
-
+		setInputvalue(inputedNumber);
+		if (randomvalue < Number(inputvalue)) {
+			setGuesshighlowstring("⬆️⬆️ Guess number is high");
+		} else if (randomvalue > Number(inputvalue)) {
+			setGuesshighlowstring("⬇️⬇️ Guess number is low");
+		} else {
+			setGuesshighlowstring("You Win");
+		}
 		if (Number(inputvalue) === randomvalue) {
 			setNumberequal(true);
 		} else {
 			setNumberequal(false);
 		}
 	}
+	const winbackcolor = { backgroundColor: "lightblue" };
+	const orbackcolor = { backgroundColor: "lightgreen" };
 
 	return (
-		<div className="container-fluid">
+		<div
+			className="container-fluid"
+			style={numberequal ? winbackcolor : orbackcolor}>
 			<div className="row">
+				<div className="col-12 fs-1 text-center mt-5"> Guess the number</div>
 				<div className="col-12 text-center">
 					<input
 						type="number"
@@ -45,7 +57,7 @@ function App() {
 						Is the number you input equal to guessed number
 						<br />
 					</p>
-					<h1>{numberequal ? "yes it is" : "No it not"}</h1>
+					<h1>{guesshighlowstring}</h1>
 				</div>
 			</div>
 		</div>
