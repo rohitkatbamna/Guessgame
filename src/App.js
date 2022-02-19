@@ -10,16 +10,16 @@ function App() {
 	function handleChange(event) {
 		inputedNumber = event.target.value;
 		console.log(inputedNumber);
-	}
-	function onSubmit() {
-		setInputvalue(inputedNumber);
-		if (randomvalue < Number(inputvalue)) {
+		if (randomvalue < Number(inputedNumber)) {
 			setGuesshighlowstring("⬆️⬆️ Guess number is high");
-		} else if (randomvalue > Number(inputvalue)) {
+		} else if (randomvalue > Number(inputedNumber)) {
 			setGuesshighlowstring("⬇️⬇️ Guess number is low");
 		} else {
 			setGuesshighlowstring("You Win");
 		}
+	}
+	function onSubmit() {
+		setInputvalue(inputedNumber);
 		if (Number(inputvalue) === randomvalue) {
 			setNumberequal(true);
 		} else {
