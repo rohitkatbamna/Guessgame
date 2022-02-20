@@ -27,8 +27,8 @@ function App() {
 	}
 	function handleReset() {
 		randomvalue = Math.floor(Math.random() * 20);
-		setInputvalue("");
 		setNumberequal(false);
+		setInputvalue("");
 		guesshighlowstring("");
 	}
 	function onSubmit() {
@@ -52,8 +52,12 @@ function App() {
 	return (
 		<div
 			className="container-fluid"
-			style={numberequal ? winbackcolor : orbackcolor}>
-			<div className="row" style={numberequal ? winbackcolor : orbackcolor}>
+			style={{
+				backgroundColor: "lightgray",
+				backgroundRepeat: "repeat",
+				backgroundSize: "cover",
+			}}>
+			<div className="row">
 				<div className="col-12 fs-1 text-center mt-5">
 					{" "}
 					Guess the number between 1 and 20
