@@ -6,20 +6,21 @@ function App() {
 	const [numberequal, setNumberequal] = useState(false);
 	const [guesshighlowstring, setGuesshighlowstring] = useState("");
 	let inputedNumber;
-
+	let stringhighlow;
 	function handleChange(event) {
 		inputedNumber = event.target.value;
 		console.log(inputedNumber);
 		if (randomvalue < Number(inputedNumber)) {
-			setGuesshighlowstring("⬆️⬆️ Guess number is high");
+			stringhighlow = "⬆️⬆️ Guess number is high";
 		} else if (randomvalue > Number(inputedNumber)) {
-			setGuesshighlowstring("⬇️⬇️ Guess number is low");
+			stringhighlow = "⬇️⬇️ Guess number is low";
 		} else {
-			setGuesshighlowstring("You Win");
+			stringhighlow = "You Win";
 		}
 	}
 	function onSubmit() {
 		setInputvalue(inputedNumber);
+		setGuesshighlowstring(stringhighlow);
 		if (Number(inputvalue) === randomvalue) {
 			setNumberequal(true);
 		} else {
