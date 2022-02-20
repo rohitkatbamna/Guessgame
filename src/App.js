@@ -27,15 +27,24 @@ function App() {
 			setNumberequal(false);
 		}
 	}
-	const winbackcolor = { backgroundColor: "lightblue" };
-	const orbackcolor = { backgroundColor: "lightgreen" };
+	const winbackcolor = {
+		backgroundColor: "lightblue",
+		backgroundSize: "cover",
+	};
+	const orbackcolor = {
+		backgroundColor: "lightgreen",
+		backgroundSize: "cover",
+	};
 
 	return (
 		<div
 			className="container-fluid"
 			style={numberequal ? winbackcolor : orbackcolor}>
-			<div className="row">
-				<div className="col-12 fs-1 text-center mt-5"> Guess the number</div>
+			<div className="row" style={numberequal ? winbackcolor : orbackcolor}>
+				<div className="col-12 fs-1 text-center mt-5">
+					{" "}
+					Guess the number between 1 and 20
+				</div>
 				<div className="col-12 text-center">
 					<input
 						type="number"
@@ -50,7 +59,10 @@ function App() {
 						max="20"
 					/>
 					<br />
-					<button className="btn btn-primary btn-lg mt-5" onClick={onSubmit}>
+					<button
+						className="btn btn-primary btn-lg mt-5"
+						onClick={onSubmit}
+						disabled={numberequal}>
 						Submit
 					</button>
 					<p className="fs-1 text-dark">Inputed number : {inputvalue}</p>
