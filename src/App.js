@@ -21,7 +21,7 @@ function App() {
 	function onSubmit() {
 		setInputvalue(inputedNumber);
 		setGuesshighlowstring(stringhighlow);
-		if (Number(inputvalue) === randomvalue) {
+		if (Number(inputedNumber) === randomvalue) {
 			setNumberequal(true);
 		} else {
 			setNumberequal(false);
@@ -49,10 +49,12 @@ function App() {
 					<input
 						type="number"
 						style={{
-							width: "10vw",
-							height: "5vw",
+							width: "130px",
+							height: "80px",
 							fontSize: "30px",
 							marginTop: "5vw",
+							border: "4px solid black",
+							borderRadius: "16px",
 						}}
 						onChange={handleChange}
 						min="1"
