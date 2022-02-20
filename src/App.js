@@ -11,12 +11,25 @@ function App() {
 		inputedNumber = event.target.value;
 		console.log(inputedNumber);
 		if (randomvalue < Number(inputedNumber)) {
-			stringhighlow = "⬆️⬆️ Guess number is high";
+			stringhighlow = "⬆️⬆️ Guessed number is high";
 		} else if (randomvalue > Number(inputedNumber)) {
-			stringhighlow = "⬇️⬇️ Guess number is low";
+			stringhighlow = "⬇️⬇️ Guessed number is low";
 		} else {
-			stringhighlow = "You Win";
+			stringhighlow = (
+				<>
+					<p className="fs-1">You Win</p>
+					<button className="btn btn-primary btn-lg" onClick={handleReset}>
+						Play Again
+					</button>
+				</>
+			);
 		}
+	}
+	function handleReset() {
+		setInputvalue("");
+		setNumberequal(false);
+		guesshighlowstring("");
+		const randomvalue = Math.floor(Math.random() * 20);
 	}
 	function onSubmit() {
 		setInputvalue(inputedNumber);
@@ -45,6 +58,7 @@ function App() {
 					{" "}
 					Guess the number between 1 and 20
 				</div>
+
 				<div className="col-12 text-center">
 					<input
 						type="number"
