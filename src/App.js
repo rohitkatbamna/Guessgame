@@ -46,6 +46,8 @@ function App() {
 							marginTop: "5vw",
 						}}
 						onChange={handleChange}
+						min="1"
+						max="20"
 					/>
 					<br />
 					<button className="btn btn-primary btn-lg mt-5" onClick={onSubmit}>
