@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-const randomvalue = Math.floor(Math.random() * 20);
+let randomvalue = Math.floor(Math.random() * 20);
 function App() {
 	const [inputvalue, setInputvalue] = useState("Nothing Here");
 	const [numberequal, setNumberequal] = useState(false);
@@ -26,10 +26,10 @@ function App() {
 		}
 	}
 	function handleReset() {
+		randomvalue = Math.floor(Math.random() * 20);
 		setInputvalue("");
 		setNumberequal(false);
 		guesshighlowstring("");
-		const randomvalue = Math.floor(Math.random() * 20);
 	}
 	function onSubmit() {
 		setInputvalue(inputedNumber);
